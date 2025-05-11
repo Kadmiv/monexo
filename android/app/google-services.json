@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1017547363410",
+    "project_id": "monexo-e3687",
+    "storage_bucket": "monexo-e3687.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017547363410:android:23e762792b767c71307b8b",
+        "android_client_info": {
+          "package_name": "com.diploma.monexo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017547363410-6211i38f7iun6vpr07iot41vsn6o0dqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diploma.monexo.app",
+            "certificate_hash": "fefee0e2d49ba7b9ed7d44e9008874a7a7f77c55"
+          }
+        },
+        {
+          "client_id": "1017547363410-i92arv2i1n16pkppcs3elj9uf45is2bu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwSMJFi5xBzTYXDpp5gVuD1MTxSha6l94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017547363410-i92arv2i1n16pkppcs3elj9uf45is2bu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1017547363410-i6ruba2avt80uc3o4un8kqf1ieims40g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.diploma.monexo.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
