@@ -34,7 +34,6 @@
 .pub-cache/
 .pub/
 .lock/
-/*/build/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -84,3 +83,4 @@ apps/eschool_flutter/devtools_options.yaml
 /apps/eschool_flutter/ios/Flutter/flutter_export_environment.sh
 /apps/eschool_flutter/ios/Flutter/Generated.xcconfig
 /apps/eschool_flutter/ios/Flutter/Release.xcconfig
+/build/
