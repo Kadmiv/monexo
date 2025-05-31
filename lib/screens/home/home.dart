@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     if (state is HomeLoaded) {
-      Widget transactions = const NoTransactionsFound();
+      Widget transactions = Center(child: const NoTransactionsFound());
 
       /// Відображення списку транзакцій
       if (state.transactions.isNotEmpty) {

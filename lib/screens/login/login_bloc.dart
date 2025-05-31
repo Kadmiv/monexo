@@ -30,6 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await _userDatabaseService.init(user);
       await _accountDatabaseService.init(user);
       await _categoryProvider.init(user);
+      await _transactionService.init(user);
 
       final hasAnyAccounts = await _accountDatabaseService.hasAnyAccounts;
 
