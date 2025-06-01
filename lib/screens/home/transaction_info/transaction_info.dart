@@ -216,16 +216,7 @@ class _TransactionInfoScreenState extends State<TransactionInfoScreen>
                                       : S.of(context).update,
                                   onPressed: state is TransactionInfoLoading
                                       ? null
-                                      : () {
-                                          final hasCategory =
-                                              transaction?.category != null;
-                                          if (_formKey.currentState!
-                                                  .validate() &&
-                                              hasCategory) {
-                                            _bloc.add(TransactionSubmitted(
-                                                transaction, widget.account));
-                                          }
-                                        },
+                                      : _validateAndSubmit,
                                 ),
                           const SizedBox(height: 20),
                         ],
@@ -348,5 +339,12 @@ class _TransactionInfoScreenState extends State<TransactionInfoScreen>
         .where((x) =>
             x.type == (isIncome ? CategoryType.income : CategoryType.expense))
         .toList();
+  }
+
+  void _validateAndSubmit() {
+    final hasCategory = transaction?.category != null;
+    if (_formKey.currentState!.validate() && hasCategory) {
+      _bloc.add(TransactionSubmitted(transaction, widget.account));
+    }
   }
 }

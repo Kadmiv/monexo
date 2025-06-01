@@ -1,7 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:monexo/models/models.dart';
-import 'package:monexo/services/category_provider.dart';
-import 'package:monexo/services/account_provider.dart';
 import 'package:monexo/services/services.dart';
 
 import 'transaction_info_event.dart';
@@ -14,8 +12,7 @@ class TransactionInfoBloc
     on<TransactionSubmitted>(_onTransactionSubmitted);
   }
 
-  final TransactionProvider _transactionService =
-      TransactionProvider();
+  final TransactionProvider _transactionService = TransactionProvider();
   final CategoryProvider _categoryProvider = CategoryProvider();
   final AccountProvider _accountService = AccountProvider();
 
@@ -57,8 +54,8 @@ class TransactionInfoBloc
         category: transaction.category,
       );
 
-      await _transactionService.addTransaction(transaction);
       emit(const TransactionCreationSuccess());
+      await _transactionService.addTransaction(transaction);
     } catch (e) {
       emit(TransactionInfoError(e.toString()));
     }

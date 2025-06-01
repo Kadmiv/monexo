@@ -41,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
         listener: (context, state) {
           if (state is HomeLoaded) {
             account = state.account;
+          } else if (state is OutOfBalanceLimitState) {
+            _showOutOfBalanceLimitDialog();
           }
         },
         builder: (context, state) {
@@ -140,8 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// Відображення діалогу для створення транзакції
-  void _onCreateNewTransactionTap() {
-    showModalBottomSheet(
+  Future<void> _onCreateNewTransactionTap() async {
+    await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (context) => TransactionInfoScreen(
@@ -151,8 +153,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// Відображення діалогу для оновлення транзакції
-  void _onTransactionTap(TransactionModel transaction) {
-    showModalBottomSheet(
+  Future<void> _onTransactionTap(TransactionModel transaction) async {
+    await showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       builder: (context) => TransactionInfoScreen(
@@ -160,5 +162,34 @@ class _HomeScreenState extends State<HomeScreen> {
         account: account,
       ),
     );
+  }
+
+  bool alertOutOfBalanceAlertIsShown = false;
+
+  Future<void> _showOutOfBalanceLimitDialog() async {
+    if (alertOutOfBalanceAlertIsShown) {
+      return;
+    }
+
+    setState(() {
+      alertOutOfBalanceAlertIsShown = true;
+    });
+    await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Увага!'),
+        content: const Text(
+            'Ваш місячний ліміт перевищено 😱\n\nБудь ласка, перестанье витрачати грощі або збільшіть місячний ліміт рахунку 😜'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Зрозуміло'),
+          ),
+        ],
+      ),
+    );
+    setState(() {
+      alertOutOfBalanceAlertIsShown = false;
+    });
   }
 }

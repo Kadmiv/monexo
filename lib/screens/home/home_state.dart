@@ -7,6 +7,8 @@ class HomeInitial extends HomeState {}
 
 class HomeLoading extends HomeState {}
 
+class OutOfBalanceLimitState extends HomeState {}
+
 class HomeLoaded extends HomeState {
   final Account account;
   final List<TransactionModel> transactions;
